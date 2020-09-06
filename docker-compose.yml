@@ -9,7 +9,7 @@ services:
   dashboard:
     image: grafana/grafana
     links:
-      - sensor
+      - influxdb 
     ports:
       - "3000:3000"
     volumes:
