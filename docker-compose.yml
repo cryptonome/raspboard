@@ -27,11 +27,15 @@ services:
       - GF_SECURITY_ADMIN_USER=${GRAFANA_USERNAME}
       - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD}
   injector:
-    image: cryptonome/rp_injector
+    build: ./injector
+    image: rp_injector
     links:
       - influxdb
     networks:
       - monitoring
+    environment:
+      - RASPILOT_IP=${RASPILOT_IP}
+      - INFLUXDB_IP=${INFLUXDB_IP}
 
 networks:
   monitoring:

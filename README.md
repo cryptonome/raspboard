@@ -1,13 +1,13 @@
 # raspboard
 
-Multi-container Docker app built from the following services:
+##Multi-container Docker app built from the following services:
 
     InfluxDB - time series database
     Grafana - visualization UI for InfluxDB
     Injector - data injector from can bus information gather in raspberry-pilot
 
 
-Quick Start
+##Quick Start
 
 To start the app:
 
@@ -24,7 +24,7 @@ To stop the app:
 
 docker-compose stop
 
-Ports
+##Ports
 
 The services in the app run on the following ports:
 Host Port 	Service
@@ -32,7 +32,7 @@ Host Port 	Service
 8086 	InfluxDB
 
 
-Volumes
+##Volumes
 
 The app creates the following named volumes (one for each service) so data is not lost when the app is stopped:
 
@@ -40,7 +40,7 @@ The app creates the following named volumes (one for each service) so data is no
     chronograf-storage
     grafana-storage
 
-Users
+##Users
 
 The app creates two admin users - one for InfluxDB and one for Grafana. By default, the username and password of both accounts is admin. To override the default credentials, set the following environment variables before starting the app:
 
@@ -49,17 +49,17 @@ The app creates two admin users - one for InfluxDB and one for Grafana. By defau
     GRAFANA_USERNAME
     GRAFANA_PASSWORD
 
-Database
+##Database
 
 The app creates a default InfluxDB database called carDB.
 
-Data Sources
+##Data Sources
 
 The app creates a Grafana data source called InfluxDB that's connected to the default IndfluxDB database (e.g. carDB).
 
 To provision additional data sources, see the Grafana documentation and add a config file to ./grafana/datasources/ before starting the app.
 
-Dashboards
+##Dashboards
 
 By default, the app does not create any Grafana dashboards. An example dashboard that's configured to work with carDB at influxdb is located at ./grafana-provisioning/dashboards/
 
