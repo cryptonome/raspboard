@@ -11,10 +11,11 @@ import os
 import signal
 import sys
 from influxdb import InfluxDBClient, SeriesHelper
+from services import service_list
 
 
-USER = ''
-PASSWORD = ''
+USER = 'admin'
+PASSWORD = 'admin'
 DBNAME = 'carDB'
 
 influxLineString = ""
@@ -53,11 +54,15 @@ steer2FrameString = 'steerData2,testName=secondRun,active=%s steer_torque_driver
 
 #FrameString = 'rawCANData,pid=%s,bus=%s First32=%di,Second32=%di,sword1=%d,sword2=%d,sword3=%d,sword4=%d %d\n'
 
-canport = 8592 #8006
+canport = service_list['can'].port #8592 #8006
 steerport = 8593
 latport = 8594
 steerport2 = 8595
 steerport3 = 8596
+pathPlan = service_list['pathPlan'].port #8067
+carState = service_list['carState'].port #8021
+
+
 
 def db_exists(influx):
     '''returns True if the database exists'''
