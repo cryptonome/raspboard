@@ -1,5 +1,7 @@
 # raspboard
 
+Based on https://github.com/Gernby/OpenPilot_Dashboard
+
 ##Multi-container Docker app built from the following services:
 
     InfluxDB - time series database
