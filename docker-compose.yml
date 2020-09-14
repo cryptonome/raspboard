@@ -18,6 +18,8 @@ services:
       - influxdb 
     ports:
       - "3000:3000"
+    depends_on:
+      - influxdb
     networks:
       - monitoring
     volumes:
