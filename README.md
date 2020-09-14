@@ -2,14 +2,14 @@
 
 Based on https://github.com/Gernby/OpenPilot_Dashboard
 
-##Multi-container Docker app built from the following services:
+## Multi-container Docker app built from the following services:
 
     InfluxDB - time series database
     Grafana - visualization UI for InfluxDB
     Injector - data injector from can bus information gather in raspberry-pilot
 
 
-##Quick Start
+## Quick Start
 
 To start the app:
 
@@ -17,16 +17,20 @@ To start the app:
     Clone this repo on the docker host.
     Optionally, change default credentials or Grafana provisioning.
     Run the following command from the root of the cloned repo:
+    
+    docker-compose up -d
 
-docker-compose up -d
+
 
 To stop the app:
 
     Run the following command from the root of the cloned repo:
+    
+    docker-compose stop
 
-docker-compose stop
 
-##Ports
+
+## Ports
 
 The services in the app run on the following ports:
 Host Port 	Service
@@ -34,12 +38,11 @@ Host Port 	Service
 8086 	InfluxDB
 
 
-##Volumes
+## Volumes
 
 The app creates the following named volumes (one for each service) so data is not lost when the app is stopped:
 
     influxdb-storage
-    chronograf-storage
     grafana-storage
 
 ##Users
@@ -51,11 +54,11 @@ The app creates two admin users - one for InfluxDB and one for Grafana. By defau
     GRAFANA_USERNAME
     GRAFANA_PASSWORD
 
-##Database
+## Database
 
 The app creates a default InfluxDB database called carDB.
 
-##Data Sources
+## Data Sources
 
 The app creates a Grafana data source called InfluxDB that's connected to the default IndfluxDB database (e.g. carDB).
 
@@ -66,7 +69,7 @@ Setup the initial IP for raspberry-pilot machine and docker machine to gather th
     RASPILOT_IP
     INFLUXDB_IP
 
-##Dashboards
+## Dashboards
 
 By default, the app does not create any Grafana dashboards. An example dashboard that's configured to work with carDB at influxdb is located at ./grafana-provisioning/dashboards/
 
