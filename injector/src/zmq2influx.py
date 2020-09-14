@@ -134,7 +134,7 @@ def connect_db(host_db, host_rp, reset):
 
     words = [0,0,0,0]
     swords = [0,0,0,0]
-
+    print('Get into the loop')
     while 1:
         try:
             socks = dict(poller.poll(5))

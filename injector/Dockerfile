@@ -16,7 +16,7 @@ RUN pip install --trusted-host pypi.python.org -r requirements.txt
 # Copy the python script
 COPY src/zmq2influx.py /app/zmq2influx.py
 COPY src/services.py /app/services.py
-COPY src/service_list.yml /app/service_list.yml
+COPY src/service_list.yaml /app/service_list.yaml
 
 # Run app.py when the container launches
 # The -u flag specifies to use the unbuffered ouput.
