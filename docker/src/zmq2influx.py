@@ -228,7 +228,7 @@ def connect_db(host, host2, reset):
             headers = { 'Content-type': 'application/octet-stream', 'Accept': 'text/plain' }
             influx.request("write",'POST', {'db':DBNAME}, influxLineString.encode('utf-8'), 204, headers)
             influxLineString = ""
-        print('Loop ...')
+        
 
 
 

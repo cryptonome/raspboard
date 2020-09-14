@@ -19,7 +19,7 @@ services:
     volumes:
       - grafana:/var/lib/grafana
   injector:
-    image: cryptonome/rp_injector:v1.0-x86_64
+    image: cryptonome/rp_injector
     links:
       - influxdb
     networks:
