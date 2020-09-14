@@ -61,6 +61,11 @@ The app creates a Grafana data source called InfluxDB that's connected to the de
 
 To provision additional data sources, see the Grafana documentation and add a config file to ./grafana/datasources/ before starting the app.
 
+Setup the initial IP for raspberry-pilot machine and docker machine to gather the information
+
+    RASPILOT_IP
+    INFLUXDB_IP
+
 ##Dashboards
 
 By default, the app does not create any Grafana dashboards. An example dashboard that's configured to work with carDB at influxdb is located at ./grafana-provisioning/dashboards/
