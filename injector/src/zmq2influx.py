@@ -83,12 +83,12 @@ def wait_for_server(host, port, nretries=5):
     print('cannot connect to', url)
     sys.exit(1)
 
-def connect_db(host, host2, reset):
-    ipaddress = host1
-    print('connecting to database: {}:{}'.format(host,8086))
+def connect_db(host_db, host_rp, reset):
+    ipaddress = host_rp
+    print('connecting to database: {}:{}'.format(host_db,8086))
 
-    influx = InfluxDBClient(host, 8086, retries=5, timeout=1)
-    wait_for_server(host, 8086)
+    influx = InfluxDBClient(host_db, 8086, retries=5, timeout=1)
+    wait_for_server(host_db, 8086)
     create = False
     if not db_exists(influx):
         create = True
@@ -278,7 +278,7 @@ if __name__ == '__main__':
         print('please specify two arguments')
         sys.exit(1)
     host1, host2  = args
-    connect_db(host1, host2, options.reset)
+    connect_db(host2, host1, options.reset)
     def signal_handler(sig, frame):
         print()
         print('stopping')
