@@ -4,6 +4,8 @@ services:
     image: influxdb
     ports:
       - "8086:8086"
+    networks:
+      - monitoring
     volumes:
       - influxdb:/var/lib/influxdb
   dashboard:
@@ -12,9 +14,20 @@ services:
       - influxdb 
     ports:
       - "3000:3000"
+    networks:
+      - monitoring
     volumes:
       - grafana:/var/lib/grafana
+  injector:
+    image: cryptonome/rp_injector:v1.0-x86_64
+    links:
+      - influxdb
+    networks:
+      - monitoring
+
+networks:
+  monitoring:
 
 volumes:
-  influxdb:
   grafana:
+  influxdb:
