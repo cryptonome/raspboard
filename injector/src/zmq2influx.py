@@ -63,7 +63,7 @@ def db_exists(influx):
     '''returns True if the database exists'''
     dbs = influx.get_list_database()
     for db in dbs:
-        if db['name'] == 'carDB':
+        if db['name'] == DBNAME:
             return True
     return False
 
@@ -96,6 +96,7 @@ def connect_db(host, host2, reset):
         influx.create_database('carDB')
     else:
         print('database already exists')
+    print('Switching to database')
     influx.switch_database('carDB')
     print('Connecting to ZMQ...')
     context = zmq.Context()
